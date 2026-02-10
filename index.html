@@ -4,94 +4,215 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- TITULO GOOGLE -->
 <title>Barbearia do Pedrão</title>
 <meta name="description" content="Cortes profissionais, barba e estilo em Colatina. Agende já.">
 
-<!-- PREVIEW WHATSAPP -->
+<!-- PREVIEW WHATSAPP / INSTAGRAM -->
 <meta property="og:title" content="Barbearia do Pedrão">
 <meta property="og:description" content="Cortes profissionais, barba e estilo em Colatina. Agende já.">
 <meta property="og:image" content="https://i.imgur.com/Lh0o1a2.jpeg">
 <meta property="og:url" content="https://barbeariadopedrao.netlify.app/">
 <meta property="og:type" content="website">
 
+<!-- IMAGEM ABA -->
 <link rel="icon" href="https://i.imgur.com/Lh0o1a2.jpeg">
 
+<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- ICONES -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<!-- SEU CSS -->
+<!-- SEU CSS (TAVA FALTANDO) -->
 <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
 <nav class="navbar">
-<div class="container">
-<a href="#" class="logo">Barbearia do Pedrão</a>
+    <div class="container">
+        <a href="#" class="logo">Barbearia do Pedrão</a>
 
-<div class="nav-links">
-<a href="#servicos">Serviços</a>
-<a href="#sobre">Sobre</a>
-<a href="#contato" class="nav-cta">Agendar</a>
-</div>
-</div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#servicos">Serviços</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato" class="nav-cta">Agendar</a>
+        </div>
+    </div>
 </nav>
 
 <header class="hero">
-<div class="container">
-<h1>BARBEARIA DO PEDRÃO</h1>
-<p class="hero-subtitle">Seu visual em outro nível</p>
-<p class="hero-text">Corte e barba bem feitos, do jeito certo.</p>
-<a href="#contato" class="cta-button">Agendar Atendimento</a>
-</div>
+    <div class="container">
+        <h1>BARBEARIA DO PEDRÃO</h1>
+        <p class="hero-subtitle">Seu visual em outro nível</p>
+        <p class="hero-text">Corte e barba bem feitos, do jeito certo. Atendimento profissional e de confiança.</p>
+        <a href="#contato" class="cta-button">Agendar Atendimento</a>
+    </div>
 </header>
 
 <section class="services" id="servicos">
 <div class="container">
 <h2>Procedimentos Adulto & Infantil</h2>
 
+<!-- CORTE -->
 <div class="service-card">
+<div class="service-header">
 <span class="icon">✂️</span>
-<h3>Corte</h3>
+<h3>Corte de Cabelo</h3>
 <p class="price">R$ 30,00</p>
 </div>
 
-<div class="service-card">
-<span class="icon">🧔</span>
-<h3>Barba</h3>
-<p class="price">R$ 5 a 25</p>
+<div class="service-styles">
+<h4>Escolha seu estilo:</h4>
+<ul>
+
+<li id="degrade-item">Degradê</li>
+<div class="modal" id="degrade-modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<div class="modal-images">
+<img src="img/degrade1.png">
+<img src="img/degrade2.png">
+</div>
+</div>
 </div>
 
+<li id="social-item">Social</li>
+<div class="modal" id="social-modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<div class="modal-images">
+<img src="img/corte-social1.png">
+<img src="img/corte-social2.png">
+</div>
+</div>
+</div>
+
+<li id="Navalha-item">Navalhado</li>
+<div class="modal" id="Navalha-modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<div class="modal-images">
+<img src="img/Navalha1.png">
+<img src="img/Navalha2.png">
+</div>
+</div>
+</div>
+
+<li id="Tesoura-item">Jaca</li>
+<div class="modal" id="Tesoura-modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<div class="modal-images">
+<img src="img/Tesoura1.png">
+<img src="img/Tesoura2.png">
+</div>
+</div>
+</div>
+
+<li id="Americano-item">Americano</li>
+<div class="modal" id="Americano-modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<div class="modal-images">
+<img src="img/Americano1.png">
+<img src="img/Americano2.png">
+</div>
+</div>
+</div>
+
+</ul>
+</div>
+</div>
+
+<!-- BARBA -->
+<div class="service-card">
+<div class="service-header">
+<span class="icon">🧔</span>
+<h3>Barba</h3>
+<p class="price">R$ 5,00 - 25,00</p>
+</div>
+
+<div class="service-styles">
+<h4></h4>
+<ul>
+
+<li id="Cavanhaque-item">Cavanhaque</li>
+<div class="modal" id="Cavanhaque-modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<div class="modal-images">
+<img src="img/cavanhaque1.png">
+<img src="img/cavanhaque2.png">
+</div>
+</div>
+</div>
+
+<li id="Barba-item">Barba</li>
+<div class="modal" id="Barba-modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<div class="modal-images">
+<img src="img/barba1.png">
+<img src="img/barba2.png">
+</div>
+</div>
+</div>
+
+<li id="Bigode-item">Bigode</li>
+<div class="modal" id="Bigode-modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<div class="modal-images">
+<img src="img/bigode1.png">
+<img src="img/bigode2.png">
+</div>
+</div>
+</div>
+
+</ul>
+</div>
+</div>
+
+<!-- SERVIÇOS EXTRA -->
 <div class="additional-services">
 
 <div class="service-item">
 <span class="icon">⚡</span>
 <h3>Risquinho</h3>
-<p class="price">R$ 15</p>
+<p class="price">R$ 15,00</p>
 </div>
 
 <div class="service-item">
 <span class="icon">👁️</span>
 <h3>Sobrancelha</h3>
-<p class="price">R$ 15</p>
+<p class="price">R$ 15,00</p>
 </div>
 
 <div class="service-item">
 <span class="icon">🚀</span>
 <h3>Reflexo</h3>
-<p class="price">R$ 100</p>
+<p class="price">R$ 100,00</p>
 </div>
 
 <div class="service-item">
 <span class="icon">🎨</span>
 <h3>Pigmentação</h3>
-<p class="price">R$ 50</p>
+<p class="price">R$ 50,00</p>
 </div>
 
 <div class="service-item">
 <span class="icon">❄️</span>
 <h3>Nevou</h3>
-<p class="price">R$ 70</p>
+<p class="price">R$ 70,00</p>
 </div>
 
 </div>
@@ -99,67 +220,69 @@
 </section>
 
 <section class="about" id="sobre">
-<div class="container">
-<span class="icon">👨‍🎨</span>
-<h2>Sobre o Profissional</h2>
-<h3>Pedrão du Corte</h3>
-<p>Corte e barba do jeito certo, com atenção em cada detalhe.
-Qualidade, estilo e atendimento de confiança.</p>
-</div>
+    <div class="container">
+        <span class="icon">👨‍🎨</span>
+        <h2>Sobre o Profissional</h2>
+        <h3>Pedrão du Corte</h3>
+        <p>Corte e barba do jeito certo, com atenção em cada detalhe.
+Qualidade, estilo e aquele atendimento de confiança.</p>
+    </div>
 </section>
 
 <section class="cta" id="contato">
-<div class="container">
-<h2>Agende agora seu horário</h2>
-<p>Clique abaixo e fale direto no WhatsApp</p>
-<a href="https://wa.me/5527996141604" target="_blank" class="cta-button">AGENDAR NO WHATSAPP</a>
-</div>
+    <div class="container">
+        <h2>Agende agora seu horário!</h2>
+        <p>Aqui seu visual muda de verdade. Corte e barba com quem entende do assunto.</p>
+        <a href="https://wa.me/5527996141604" target="_blank" class="cta-button">Agendar Atendimento</a>
+    </div>
 </section>
 
-<!-- FOOTER IGUAL FOTO -->
 <footer class="footer">
-<div class="container">
+    <div class="container">
+        <div class="footer-content">
 
-<div class="footer-content">
+            <!-- Horário -->
+            <div class="footer-info">
+                <h3>HORÁRIO DE FUNCIONAMENTO</h3>
+                <p><i class="fas fa-clock"></i> Seg - Sex: 9h às 20h</p>
+                <p><i class="fas fa-clock"></i> Sáb: 9h às 12h</p>
+            </div>
 
-<!-- HORARIO -->
-<div class="footer-box">
-<h3>HORÁRIO DE FUNCIONAMENTO</h3>
-<p><i class="fas fa-clock"></i> Seg - Sex: 9h às 20h</p>
-<p><i class="fas fa-clock"></i> Sáb: 9h às 12h</p>
-</div>
+            <!-- Redes -->
+            <div class="footer-social">
+                <h3>REDES SOCIAIS</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/barbearia_pedrao_du_corte_99/" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
 
-<!-- REDES -->
-<div class="footer-box">
-<h3>REDES SOCIAIS</h3>
-<div class="social-links">
+                    <a href="https://wa.me/5527996141604" target="_blank" class="social-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
 
-<a href="https://www.instagram.com/barbearia_pedrao_du_corte_99/" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
+            <!-- Contato -->
+            <div class="footer-contact">
+                <h3>CONTATO</h3>
+                <p><i class="fas fa-phone"></i> 27996141604</p>
+                <p><i class="fas fa-map-marker-alt"></i> R. Paulo Resende, 115 - Operário, Colatina - ES, 29701-270</p>
+            </div>
 
-<a href="https://wa.me/5527996141604" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
+        </div>
 
-</div>
-</div>
-
-<!-- CONTATO -->
-<div class="footer-box">
-<h3>CONTATO</h3>
-<p><i class="fas fa-phone"></i> 27 99614-1604</p>
-<p><i class="fas fa-map-marker-alt"></i> R. Paulo Resende, 115 - Colatina ES</p>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-<p>© 2026 Barbearia do Pedrão</p>
-</div>
-
-</div>
+        <div class="footer-bottom">
+            <p>© 2026 Barbearia Pedrão du Corte - Todos os direitos reservados</p>
+        </div>
+    </div>
 </footer>
 
-</body>
-</html>
+
+<script src="script.js"></script>
+
+
+
+
+
+
+<!--  -->
