@@ -1,36 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Função para configurar modais
+
+    // ===== FUNÇÃO MODAL SEGURA (NÃO QUEBRA MAIS O SITE) =====
     function setupModal(itemId, modalId) {
         const item = document.getElementById(itemId);
         const modal = document.getElementById(modalId);
+
+        // se não existir no HTML, ignora
+        if (!item || !modal) return;
+
         const closeBtn = modal.querySelector('.close-modal');
+        if (!closeBtn) return;
 
         item.addEventListener('click', () => {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+
             setTimeout(() => {
                 modal.style.opacity = '1';
-                modal.querySelector('.modal-content').style.transform = 'scale(1)';
+                const content = modal.querySelector('.modal-content');
+                if (content) content.style.transform = 'scale(1)';
             }, 10);
         });
 
         closeBtn.addEventListener('click', () => closeModal(modal));
+
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal(modal);
         });
     }
 
     function closeModal(modal) {
+        if (!modal) return;
+
         modal.style.opacity = '0';
-        modal.querySelector('.modal-content').style.transform = 'scale(0.7)';
+        const content = modal.querySelector('.modal-content');
+        if (content) content.style.transform = 'scale(0.7)';
+
         document.body.style.overflow = 'auto';
+
         setTimeout(() => {
             modal.style.display = 'none';
         }, 300);
     }
 
-    // Configurar modais para todos os itens
-    // Modais de barba
+    // ===== MODAIS BARBA =====
     setupModal('barboterapia-item', 'barboterapia-modal');
     setupModal('baldo-item', 'baldo-modal');
     setupModal('espartana-item', 'espartana-modal');
@@ -40,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('Tidy-Carefree-item', 'Tidy-Carefree-modal');
     setupModal('Cavanhaque-item', 'Cavanhaque-modal');
     setupModal('Vaporizador-item', 'Vaporizador-modal');
-    
-    // Modais de corte
+
+    // ===== MODAIS CORTE =====
     setupModal('degrade-item', 'degrade-modal');
     setupModal('social-item', 'social-modal');
     setupModal('Navalha-item', 'Navalha-modal');
@@ -59,75 +72,75 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('Dimil-item', 'Dimil-modal');
     setupModal('Franja-item', 'Franja-modal');
 
-    // Menu Mobile
+    // ===== MENU MOBILE =====
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const navbar = document.querySelector('.navbar');
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-    });
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    }
 
-    // Fechar menu ao clicar em um link
+    // fechar menu ao clicar link
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('active');
+            if (navLinks) navLinks.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
         });
     });
 
-    // Mudar cor da navbar ao rolar
+    // ===== NAVBAR SCROLL =====
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.style.background = 'rgba(26, 26, 26, 0.98)';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(26, 26, 26, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
 
-        if (currentScroll > lastScroll) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
+        if (navbar) {
+            if (currentScroll > 100) {
+                navbar.style.background = 'rgba(26,26,26,0.98)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(26,26,26,0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+
+            if (currentScroll > lastScroll) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
         }
 
         lastScroll = currentScroll;
     });
 
-    // Observador de interseção para animações de scroll
+    // ===== ANIMAÇÕES SCROLL =====
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
-    // Observar seções para animação
     document.querySelectorAll('.about, .services, .cta').forEach(section => {
         observer.observe(section);
     });
 
-    // Efeito parallax suave no hero
+    // ===== PARALLAX HERO =====
     const hero = document.querySelector('.hero');
     window.addEventListener('scroll', () => {
+        if (!hero) return;
         const scrolled = window.pageYOffset;
         hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
     });
 
-    // Animação nos cards de serviço
+    // ===== ANIMAÇÃO CARDS =====
     document.querySelectorAll('.service-card').forEach((card, index) => {
         card.style.animationDelay = `${index * 0.2}s`;
     });
 
-    // Efeito hover nos botões
+    // ===== EFEITO BOTÃO =====
     document.querySelectorAll('.cta-button').forEach(button => {
         button.addEventListener('mousemove', (e) => {
             const rect = button.getBoundingClientRect();
@@ -138,4 +151,5 @@ document.addEventListener('DOMContentLoaded', () => {
             button.style.setProperty('--y', `${y}px`);
         });
     });
+
 });
